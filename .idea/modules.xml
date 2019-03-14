@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FingerIO.iml" filepath="$PROJECT_DIR$/FingerIO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TRax/TRax.iml" filepath="$PROJECT_DIR$/TRax/TRax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gesturephase/gesturephase.iml" filepath="$PROJECT_DIR$/gesturephase/gesturephase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/infinitecycleviewpager/infinitecycleviewpager.iml" filepath="$PROJECT_DIR$/infinitecycleviewpager/infinitecycleviewpager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wear/wear.iml" filepath="$PROJECT_DIR$/wear/wear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wowoviewpager/wowoviewpager.iml" filepath="$PROJECT_DIR$/wowoviewpager/wowoviewpager.iml" />
+    </modules>
+  </component>
+</project>

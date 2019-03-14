@@ -1,0 +1,69 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:2:1-26:12
+	package
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:3:5-45
+		INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml
+		INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml
+		INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml
+		INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml
+application
+ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:5:5-20:19
+MERGED from [com.android.support:appcompat-v7:21.0.3] C:\Users\Administrator\.android\build-cache\975d0b548d96ff40fef7be1fedf5bb05925be343\output\AndroidManifest.xml:16:5-19
+MERGED from [com.android.support:support-v4:21.0.3] C:\Users\Administrator\.android\build-cache\fb134838c29ef33ac27dcc7b995af426c713e678\output\AndroidManifest.xml:16:5-19
+	android:label
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:8:9-41
+	android:allowBackup
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:9:9-40
+activity#com.example.monster.airgesture.MainActivity
+ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:10:9-18:20
+	android:label
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:12:13-45
+	android:name
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:11:13-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:16:27-74
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:21:5-96
+	android:name
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:21:22-77
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:22:5-70
+	android:name
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:22:22-68
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:23:5-83
+	android:name
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:23:22-81
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:25:5-80
+	android:name
+		ADDED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml:25:22-78
+uses-sdk
+INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:21.0.3] C:\Users\Administrator\.android\build-cache\975d0b548d96ff40fef7be1fedf5bb05925be343\output\AndroidManifest.xml:15:5-42
+MERGED from [com.android.support:support-v4:21.0.3] C:\Users\Administrator\.android\build-cache\fb134838c29ef33ac27dcc7b995af426c713e678\output\AndroidManifest.xml:15:5-42
+	android:targetSdkVersion
+		INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml
+		INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml
+		INJECTED from E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\src\main\AndroidManifest.xml

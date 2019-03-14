@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">EchoType</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="no_cap">caps</string>
+    <string name="all_cap">CAPS</string>
+    <string name="first_cap">Caps</string>
+    <string name="user_name">姓名</string>
+    <string name="user_creator_submit">提交</string>
+    <string name="user_creator_next">下一步</string>
+
+    <string name="category_auto_enter">自动输入首单词</string>
+    <string name="key_auto_enter">key_auto_enter</string>
+    <string name="title_auto_enter">自动输入首单词</string>
+    <string name="key_auto_enter_wait">key_auto_enter_wait</string>
+    <string name="title_auto_enter_wait">设置自动输入等待时间</string>
+
+    <string name="category_phase">识别功能设置</string>
+    <string name="key_sensibility">key_sensibility</string>
+    <string name="title_sensibility">设置识别灵敏度</string>
+
+</resources>

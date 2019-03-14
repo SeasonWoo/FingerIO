@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\workcode\\G4\\gama\\GestureRecognition_AndroidStudio\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
+        "source": "E:\\workcode\\G4\\gama\\GestureRecognition_AndroidStudio\\shendaGestureRecognition\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\trunk\\QB\\G4\\Gamma\\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\\GestureRecognition_AndroidStudio_current\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
+        "source": "E:\\trunk\\QB\\G4\\Gamma\\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\\GestureRecognition_AndroidStudio_current\\shendaGestureRecognition\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    }
+]

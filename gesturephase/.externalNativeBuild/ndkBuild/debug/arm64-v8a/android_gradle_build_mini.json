@@ -1,0 +1,17 @@
+{
+  "buildFiles": [
+    "E:\\AndroidProjects\\FingerIO\\gesturephase\\src\\main\\jni\\Android.mk",
+    "E:\\AndroidProjects\\FingerIO\\gesturephase\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "D:\\Android\\Sdk\\android-ndk-r16b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\AndroidProjects\\FingerIO\\gesturephase\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\AndroidProjects\\FingerIO\\gesturephase\\src\\main\\jni\\Application.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dE:/AndroidProjects/FingerIO/gesturephase/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\AndroidProjects\\FingerIO\\gesturephase\\build\\intermediates\\ndkBuild\\debug\\lib clean"
+  ],
+  "libraries": {
+    "PhaseProcess-debug-arm64-v8a": {
+      "artifactName": "PhaseProcess",
+      "buildCommand": "D:\\Android\\Sdk\\android-ndk-r16b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\AndroidProjects\\FingerIO\\gesturephase\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\AndroidProjects\\FingerIO\\gesturephase\\src\\main\\jni\\Application.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dE:/AndroidProjects/FingerIO/gesturephase/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\AndroidProjects\\FingerIO\\gesturephase\\build\\intermediates\\ndkBuild\\debug\\lib E:/AndroidProjects/FingerIO/gesturephase/build/intermediates/ndkBuild/debug/obj/local/arm64-v8a/libPhaseProcess.so",
+      "abi": "arm64-v8a",
+      "output": "E:\\AndroidProjects\\FingerIO\\gesturephase\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\arm64-v8a\\libPhaseProcess.so"
+    }
+  }
+}

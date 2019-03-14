@@ -1,0 +1,50 @@
+[
+    {
+        "outputFile": "E:\\trunk\\QB\\G4\\Gamma\\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\\GestureRecognition_AndroidStudio_current\\shendaGestureRecognition\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w720dp-v13\\values-w720dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 76,
+                    "endOffset": 127
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\.android\\build-cache\\975d0b548d96ff40fef7be1fedf5bb05925be343\\output\\res\\values-w720dp\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 56,
+                        "endColumn": 76,
+                        "endOffset": 128
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "E:\\workcode\\G4\\gama\\GestureRecognition_AndroidStudio\\shendaGestureRecognition\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w720dp-v13\\values-w720dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 76,
+                    "endOffset": 127
+                },
+                "from": {
+                    "file": "C:\\Users\\eckoyi\\.android\\build-cache\\4458ac12dc6de105d94fa61d2d771f2cf39e14b6\\output\\res\\values-w720dp\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 56,
+                        "endColumn": 76,
+                        "endOffset": 128
+                    }
+                }
+            }
+        ]
+    }
+]

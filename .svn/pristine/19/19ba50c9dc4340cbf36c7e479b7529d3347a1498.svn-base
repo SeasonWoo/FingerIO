@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\libs\JTransforms.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="79477aec6929cd64cd863d6ac59c2445d00239a3">
+        <dex dex="E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\build\intermediates\pre-dexed\debug\JTransforms_968ab10c3ce457743ad22453a901b7d3b7e14e66.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\libs\jtransforms-2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9e52124b670340d47844a734e36765c3bc11b7f3">
+        <dex dex="E:\trunk\QB\G4\Gamma\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\GestureRecognition_AndroidStudio_current\shendaGestureRecognition\app\build\intermediates\pre-dexed\debug\jtransforms-2.4_68933a415d43686e9ea7c2112844f6e3c3f4e64a.jar" />
+    </item>
+
+</items>

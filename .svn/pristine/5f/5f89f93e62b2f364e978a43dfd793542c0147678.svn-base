@@ -1,0 +1,355 @@
+//
+// Created by Administrator on 2017/9/1.
+//
+#include "SignalProcess.h"
+#include "Spectrogram.h"
+#include "ButterworthFilter.h"
+
+#include "dtwrecogeopt.h"
+#include "GammaUtil.h"
+#include "bwareaopen.h"
+#include <opencv2\opencv.hpp>
+#include "interpolate.h"
+#include <stdio.h>
+#include <time.h>
+#include "segAction.h"
+using namespace std;
+using namespace cv;
+#define NUMSAMPLE 100
+
+SignalProcess::SignalProcess()
+{
+	
+}
+
+SignalProcess::~SignalProcess()
+{
+
+}
+
+int  SignalProcess::init(string sTemplatePath)
+{
+	/*string logFile = sTemplatePath + "logfile.txt";
+	m_logfile.open(sTemplatePath.c_str(), std::ios::out);*/
+	iIndex = 0;
+	f = 20000;
+	fs = 44100;
+	Tsolu = 1.0 / fs;
+	iNfft = 8192;
+	overlap = 8192 * 0.875;
+	step = iNfft - overlap;
+	bEraseNoise = false;
+
+	noisenum = (int)(230 / (step*Tsolu));
+	
+	return loadTemplate(sTemplatePath);
+}
+
+float  SignalProcess::doProcess(float *pSignal, int iLen)
+{
+    float  logpxx = 0;
+    return logpxx;
+}
+
+int  SignalProcess::loadTemplate(string sPath)
+{
+	string sTemplatePath[6] = { sPath + "heng2.txt",sPath + "shu2.txt", sPath + "zuoxie2.txt", sPath + "youxie2.txt",sPath + "zuohu2.txt", sPath + "youhu2.txt" };
+	int iLength = 0; 
+	for (int i = 0; i < 6; i++)
+	{
+		vector<float> vTemplate;
+		GammaUtil::readByLine(sTemplatePath[i], vTemplate);
+		iLength += vTemplate.size();
+		m_vvTemplateData.push_back(vTemplate);
+	}	
+
+	return iLength;
+}
+
+
+int SignalProcess::doDtw(vector<float> pStroke, int iSize, vector<float>& vDis, const string& sResultPath, const string&  fileName)
+{
+	DtwRecogeOpt stDtwRecoge;
+	int iType = 0;
+	int iTemplateSize;
+	for (size_t i = 0; i< 6; i++)
+	{
+	
+		vector<float>& vTempData = m_vvTemplateData[i];
+	    ostringstream ss;
+        ss << i;
+        string sIndex = ss.str();
+	    string sResultFile = sResultPath + fileName + "vTempData_vs_" + sIndex + ".txt";
+        //GammaUtil::writeVecPointYToFile(sResultFile, vTempData);
+
+		iTemplateSize = vTempData.size();
+		int iRun = iTemplateSize / 10;
+		ostringstream ss1;
+		ss1<< pStroke.size()<< "|" << iTemplateSize << "|" << iRun ;
+		sResultFile = sResultPath + fileName + "vLine_vs_" + sIndex + ".txt";
+		//GammaUtil::writeLineToFile(sResultFile, ss1.str());
+
+		int iDis = stDtwRecoge.DTWDistanceFun(&pStroke[0], iSize, &vTempData[0], iTemplateSize, iRun);
+		vDis.push_back(iDis);
+	}
+
+	float fMin = 0;
+	for (size_t i = 0; i < vDis.size(); i++)
+	{
+		if (i == 0)
+		{
+			iType = 1;
+			fMin = vDis[0];
+		}
+		else
+		{
+			if (fMin > vDis[i])
+			{
+				fMin = vDis[i];
+				iType = i + 1;
+			}
+		}
+	}
+
+	return iType;
+}
+
+int    SignalProcess::doProcessV2(float *pSignal, int iLen, float *costArr, int length, string sResultPath, string fileName)
+{
+        //struct timeval start, end;
+        //gettimeofday(&start, NULL);
+
+		//累积数据
+	    Spectrogram stSpectrogram;
+        ButterworthFilter stButterworthFilter;
+	
+        int iSignalLen = iLen;//stButterworthFilter.readSignalData(sSignalFile,&pSignal);
+		//定义变量
+		iDataNum = iSignalLen - noisenum;
+        //stButterworthFilter.doButterFilter(pSignal, iSignalLen, vFilterSignal);
+		for (int i = 0; i < iLen; i++)
+		{
+			vFilterSignal.push_back(pSignal[i]);
+		}		
+
+		int iFrame = 20;
+		int iPool = step *(iFrame - 1) + iNfft;
+		
+		int iMark = 0;
+		int iStart = 1;
+		int iWatingTime = 95;
+		int count = 0; 
+		if(iIndex == 0 && (vFilterSignal.size() > noisenum) && !bEraseNoise)
+		{
+			vFilterSignal.erase(vFilterSignal.begin(), vFilterSignal.begin() + noisenum);
+			bEraseNoise = true;
+		}
+
+		int iFrameSignalLen = iPool + 1;
+		if (vFilterSignal.size() < (iFrameSignalLen))
+		{
+		    //没有累积数据直接返回
+
+			return -1;
+		}
+		else
+		{
+			iIndex++;
+			//取iPool长的数据， 数据每次会变化，从index开始取
+			float * pFrameSignal = &vFilterSignal[0];
+			
+			ostringstream ss;
+			ss << iIndex;
+			string sIndex = ss.str();
+
+			string sResultFile = sResultPath + fileName + "vFilterSignal_vs_" + sIndex + ".txt";
+			GammaUtil::writeVecPointYToFile(sResultFile, vFilterSignal);
+
+
+			// 3.STFT spectrogram
+			float **logPx;
+			int iDstRow = 0;
+			int iDstColumn = 0;
+			stSpectrogram.spectrogram(pFrameSignal, iFrameSignalLen, iNfft, overlap, iNfft, fs, &logPx, iDstRow, iDstColumn);
+			//sResultFile = sResultPath + fileName + "stSpectrogram_vs.txt";
+
+
+			//结果是59*4097
+			const int centreFreq = 20000;
+			const int nfft = 8192;
+			const int Fs = 44100;
+			float fsolu = (float)Fs / (float)nfft;
+			int  centreBin = (centreFreq*nfft / Fs);
+
+			//处理20 KHZ的数据
+			//构造opencv矩阵 161*59
+			iDstColumn = 161;
+			Mat medianfilterSrcM(iDstColumn, iDstRow, CV_32F);
+			initFloatMat(medianfilterSrcM, logPx, centreBin - 81);
+			sResultFile = sResultPath + fileName + "renoisespectrum_vs_" + sIndex + ".txt";
+			//GammaUtil::writeDataToFile(sResultFile, medianfilterSrcM);
+
+			//opencv中值滤波
+			//Mat  medianfilterDesM(4097, 59, CV_32F);
+			Mat  medianfilterDesM(iDstColumn, iDstRow, CV_32F);
+			medianBlur(medianfilterSrcM, medianfilterDesM, 3);
+			sResultFile = sResultPath + fileName + "medianfilterDesM_" + sIndex + ".txt";
+			//GammaUtil::writeDataToFile(sResultFile, medianfilterDesM);
+
+			//构造repmat
+			//Mat  repmatM(4097, 59, CV_32F);
+			Mat  repmatM(iDstColumn, iDstRow, CV_32F);
+			constructRepmat(medianfilterDesM, repmatM, 5);
+			sResultFile = sResultPath + fileName + "repmatM_vs_" + sIndex + ".txt";
+			//GammaUtil::writeDataToFile(sResultFile, repmatM);
+
+			//构造图像相减图像
+			//Mat  subdiffM(4097, 59, CV_32F);
+			Mat  subdiffM(iDstColumn, iDstRow, CV_32F);
+			subtract(medianfilterDesM, repmatM, subdiffM);
+			sResultFile = "./data/out/subdiffM_vs.txt";
+			sResultFile = sResultPath + fileName + "subdiffM_vs_" + sIndex + ".txt";
+			//GammaUtil::writeDataToFile(sResultFile, subdiffM);
+
+			//矩阵里面负数赋值为0
+			negativeToZero(subdiffM);
+			sResultFile = sResultPath + fileName + "subdiffNegativeToZeroM_vs_" + sIndex + ".txt";
+			//GammaUtil::writeDataToFile(sResultFile, subdiffM);
+
+			//最后5列赋值为0
+			//tailNoise(subdiffM, 5);	
+			sResultFile = sResultPath + fileName + "tailNoise_vs.txt";
+			//GammaUtil::writeDataToFile(sResultFile, subdiffM);
+
+			// PP(PP<2)=0;
+			lessToZero(subdiffM, 2);
+
+			//高斯滤波
+			//Mat  gaussianM(4097, 59, CV_32F);
+			Mat  gaussianM(iDstColumn, iDstRow, CV_32F);
+			GaussianBlur(subdiffM, gaussianM, cv::Size(5, 5), 1, 1, BORDER_REPLICATE);
+			sResultFile = sResultPath + fileName + "gaussianM_vs_" + sIndex + ".txt";
+			//GammaUtil::writeDataToFile(sResultFile, gaussianM);
+
+			//归一化
+			nomalLizeFilter(gaussianM);
+			sResultFile = sResultPath + fileName + "nomalLizeFilter_vs_" + sIndex + ".txt";
+			//GammaUtil::writeDataToFile(sResultFile, gaussianM);
+
+			//二值化
+			//Mat  binMFloat(4097, 59, CV_32F);
+			Mat  binMFloat(iDstColumn, iDstRow, CV_32F);
+			threshold(gaussianM, binMFloat, 0.15, 255, CV_THRESH_BINARY);
+			sResultFile = sResultPath + fileName + "binMFloat_vs_" + sIndex + ".txt";
+			//GammaUtil::writeDataToFile(sResultFile, binMFloat);
+		
+			//矩阵类型转换 
+			Mat  binMUchar(iDstColumn, iDstRow, CV_8U);
+			tranFloatMatTounCharMat(binMFloat, binMUchar);
+			//sResultFile = sResultPath + fileName + "binMUchar_vs_" + sIndex + ".txt";
+			//GammaUtil::writeUcharDataToFile(sResultFile, binMUchar);
+		
+			//填充轮廓以及去掉小轮廓
+			bwareImfill(binMUchar, 9);
+			//imshow("binMIntestIng", binMIntestIng);
+			//sResultFile = sResultPath + fileName + "bwareImfill_vs_" + sIndex + ".txt";
+			//GammaUtil::writeUcharDataToFile(sResultFile, binMUchar);
+		
+			//获取多普勒曲线
+			vector<int> vecPointY;
+			dopshift(binMUchar, vecPointY, centreBin);
+			//sResultFile = sResultPath + fileName + "dopshift_vs_" + sIndex + ".txt";
+			//GammaUtil::writeVecPointYToFile(sResultFile, vecPointY);
+
+			//转换成HZ
+			vector<float> vecHz;
+ 			pointTransToHz(vecPointY, fsolu, vecHz);
+			//sResultFile = sResultPath + fileName + "InterpolatePre_vs_" + sIndex + ".txt";
+			//GammaUtil::writeVecPointYToFile(sResultFile, vecHz);
+
+			iSignalLen = vecHz.size();
+			//中间值的处理 & remove the last frame			
+		    GammaUtil::lessThenSetValue(vecHz, f);
+			//拼接数据			
+			for (size_t i = 0; i < vecHz.size(); i++)
+			{
+				vfShift.push_back(vecHz[i]);
+			}
+			sResultFile = sResultPath + fileName + "vfShiftpre_vs" + ".txt";
+			GammaUtil::writeVecPointYToFile(sResultFile, vfShift, false);
+
+			//动作分割
+			segAction stSegAction;
+			vector<float> vAcc;		
+			int iRet = stSegAction.getAccelerate(&vfShift[0], vfShift.size(), vAcc);
+			vector<int> vpSegPos;
+			int iStart = 0;
+			int iMark = 0;
+			int iActionNum = 0;
+			iRet = stSegAction.doSegRealTime(&vAcc[0], vAcc.size(), iMark, iStart, vpSegPos);
+
+
+			if (vpSegPos.size() > 0 && vSegX.size() > 0 && vpSegPos[0] == vSegX[vSegX.size() - 1])
+			{
+				vpSegPos.erase(vpSegPos.begin());
+			}
+				
+			for (size_t i = 0; i < vpSegPos.size(); i++)
+			{
+				vSegX.push_back(vpSegPos[i]);
+			}
+
+			sResultFile = sResultPath + fileName + "Seg" + sIndex + ".txt";
+			GammaUtil::writeVecPointYToFile(sResultFile, vSegX);
+			vpSegPos.clear();
+			int iType = 0;
+			
+			//匹配
+			if (vSegX.size() >= 2)
+			{
+				//插值
+				Interpolate stInterpolate;
+				vector<float> vStroke;
+				sResultFile = sResultPath + fileName + "_vfShift_vs_" + sIndex + ".txt";
+				GammaUtil::writeVecPointYToFile(sResultFile, vfShift);
+
+				sResultFile = sResultPath + fileName + "_vSegX_vs_" + sIndex + ".txt";
+				GammaUtil::writeVecPointYToFile(sResultFile, vSegX);
+				
+				for (int j = vSegX[0]; j <= vSegX[1]; j++)
+				{
+					vStroke.push_back(vfShift[j]);
+				}
+				vector<float> vdstInstroke;
+				stInterpolate.doInterpolate(vStroke, vStroke.size(), NUMSAMPLE, vdstInstroke);
+
+				string sResultFile = sResultPath + fileName + "Interpolate_vs_" + sIndex + ".txt";
+				GammaUtil::writePointYToFile(sResultFile, &vdstInstroke[0], NUMSAMPLE);
+
+				//dtw计算 动作类型
+				vector<float> vDis;
+				iType = doDtw(vdstInstroke, NUMSAMPLE, vDis, sResultPath, fileName);;
+
+				sResultFile = sResultPath + fileName + "dtw_vs_" + sIndex + ".txt";
+				GammaUtil::writeVecPointYToFile(sResultFile, vDis);
+				//清理数据
+				GammaUtil::cleanData(iType, vSegX, vfShift, vAcc);
+			}
+
+			//if user finish the word writing?
+			GammaUtil::finishOneAction(vAcc, iWatingTime, iType, iWord, vfShift);
+
+			vFilterSignal.erase(vFilterSignal.begin(), vFilterSignal.begin() + iPool - overlap + 1);
+
+			return iType;
+		}
+
+	    //string sResultFile = sResultPath + fileName + "_actiontype_vs" + ".txt";
+		//GammaUtil::writeVecPointYToFile(sResultFile, vType);	   	
+}
+
+int SignalProcess::costTime(struct timeval& stbegin, struct timeval& stEnd)
+{
+     int timeuse = 1000000 * (stEnd.tv_sec - stbegin.tv_sec ) + stEnd.tv_usec - stbegin.tv_usec;
+     return timeuse;
+}

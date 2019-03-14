@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "E:\\workcode\\G4\\gama\\GestureRecognition_AndroidStudio\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\eckoyi\\.android\\build-cache\\4458ac12dc6de105d94fa61d2d771f2cf39e14b6\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "E:\\trunk\\QB\\G4\\Gamma\\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\\GestureRecognition_AndroidStudio_current\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\975d0b548d96ff40fef7be1fedf5bb05925be343\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "E:\\trunk\\QB\\G4\\Gamma\\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\\GestureRecognition_AndroidStudio_current\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\975d0b548d96ff40fef7be1fedf5bb05925be343\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "E:\\trunk\\QB\\G4\\Gamma\\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\\GestureRecognition_AndroidStudio_current\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\975d0b548d96ff40fef7be1fedf5bb05925be343\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "E:\\trunk\\QB\\G4\\Gamma\\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\\GestureRecognition_AndroidStudio_current\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\975d0b548d96ff40fef7be1fedf5bb05925be343\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "E:\\trunk\\QB\\G4\\Gamma\\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\\GestureRecognition_AndroidStudio_current\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\975d0b548d96ff40fef7be1fedf5bb05925be343\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "E:\\workcode\\G4\\gama\\GestureRecognition_AndroidStudio\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\eckoyi\\.android\\build-cache\\4458ac12dc6de105d94fa61d2d771f2cf39e14b6\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "E:\\workcode\\G4\\gama\\GestureRecognition_AndroidStudio\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\eckoyi\\.android\\build-cache\\4458ac12dc6de105d94fa61d2d771f2cf39e14b6\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "E:\\trunk\\QB\\G4\\Gamma\\GestureRecognition_AndroidStudio_current_eckoyi_20170924_1841\\GestureRecognition_AndroidStudio_current\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\975d0b548d96ff40fef7be1fedf5bb05925be343\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "E:\\workcode\\G4\\gama\\GestureRecognition_AndroidStudio\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\eckoyi\\.android\\build-cache\\4458ac12dc6de105d94fa61d2d771f2cf39e14b6\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "E:\\workcode\\G4\\gama\\GestureRecognition_AndroidStudio\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\eckoyi\\.android\\build-cache\\4458ac12dc6de105d94fa61d2d771f2cf39e14b6\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "E:\\workcode\\G4\\gama\\GestureRecognition_AndroidStudio\\shendaGestureRecognition\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\eckoyi\\.android\\build-cache\\4458ac12dc6de105d94fa61d2d771f2cf39e14b6\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    }
+]

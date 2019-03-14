@@ -1,0 +1,35 @@
+#ifndef __SEG_ACTION_H_
+#define __SEG_ACTION_H_
+#include <vector>
+using namespace std;
+class segAction {
+
+public:
+	segAction() {};
+	~segAction() {};
+	/*
+	*计算波形变化的加速度
+	*@输入：pdata 波形数据  iLen, 数据长度
+	*@输出：ppAcc 波形的加速度， 维数和pdata相同
+	*/
+	int getAccelerate(float * pdata, int iLen, vector<float>& vAcc);
+	/*
+	*进行动作拆分
+	*@输入：pAcc 每个点的加速度 iLen 加速度的点数
+	*@输出：vpSegPoss 拆分的动作的起始结束位置， iActionNum 拆分的动作个数
+	*/
+	int doseg(float * pAcc, int iLen, vector<int>& vpSegPos, int& iActionNum);
+
+	/*
+	*进行实时动作拆分
+	*@输入：pAcc 每个点的加速度 iLen 加速度的点数
+	*@输出：vpSegPoss 拆分的动作的起始结束位置， iActionNum 拆分的动作个数
+	*/
+	int doSegRealTime(float * pAcc, int iLen, int& iMark, int& iStart, vector<int>& vpSegPos);
+
+private:
+};
+
+
+
+#endif

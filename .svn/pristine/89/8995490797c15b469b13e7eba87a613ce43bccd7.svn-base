@@ -1,0 +1,50 @@
+//
+// Created by Administrator on 2017/9/1.
+//
+
+#ifndef ANDROID_PHASE_PLAY_STATIC_SIGNALPROCESS_H
+#define ANDROID_PHASE_PLAY_STATIC_SIGNALPROCESS_H
+#include <time.h>  
+#include <string>
+#include <vector>
+#include <iostream>
+#include <fstream>
+using namespace std;
+class SignalProcess
+{
+public:
+    SignalProcess();
+    ~SignalProcess();
+	int init(string sTemplatePath);
+    float doProcess(float *pSignal, int iLen);
+    int  doProcessV2(float *pSignal, int iLen, float *costArr, int length, string sResultPath, string fileName);
+    int costTime(struct timeval& stbegin, struct timeval& stend);
+	int  doDtw(vector<float> pStroke, int iSize, vector<float>& vDis, const string& sResultPath, const string&  fileName);
+	int getNoiseNum() {	return noisenum;}
+private:	
+	int  loadTemplate(string sPath);
+	
+private:
+	//¶¨Òå±äÁ¿
+	vector<float> vfShift;
+	vector<int> vType;
+	int iWord;
+	vector<int> vSegX;
+	std::ofstream  m_logfile;
+	vector<vector<float> > m_vvTemplateData;//Ä£°åÎÄ¼þ
+	int           iIndex;
+	vector<float> vFilterSignal; //ÐèÒªÀÛ»ýÊý¾Ý
+	//std::ofstream m_logfile;
+	int noisenum ;
+	float * pSignalNoNoise;
+	int iDataNum;
+
+	float f;
+	int fs;
+	float Tsolu;
+	int iNfft;
+	int overlap ;
+	float step;
+	bool bEraseNoise;
+};
+#endif //ANDROID_PHASE_PLAY_STATIC_SIGNALPROCESS_H
