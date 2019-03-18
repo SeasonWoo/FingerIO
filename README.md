@@ -4,3 +4,6 @@ Devoloped by: SZU-SSMC, Tencent company.
 
 # Moudle
 We have packaged FingerIO's core algorithm, you can use it easily.
+
+# Video presentation
+https://www.bilibili.com/video/av46595910/
